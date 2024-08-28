@@ -1,7 +1,9 @@
 player.onChat("ainfo", function () {
-    player.say("Příkazypříkazy pro \"agenta\":")
-    player.say("/aorej (num1) (num2) -> začne orat plochu 1 blok před sebou směrem doprava (num1) dozadu (num2) ")
-    player.say("/atp -> tele")
+    player.say("Příkazy pro \"agenta\":")
+    player.say("/aorej (num1) (num2) -> agent začne orat plochu 1 blok před sebou směrem doprava (num1) dozadu (num2) ")
+    player.say("/atp -> teleportne agenta na tvoji pozici natočeného na sever (Z-)")
+    player.say("/avlevo (num1) -> otočí agenta směrem doleva (num1)x")
+    player.say("/avpravo (num1) -> otočí")
 })
 player.onChat("avlevo", function (num1) {
     for (let index = 0; index < num1; index++) {
@@ -20,4 +22,9 @@ player.onChat("aorej", function (num1, num2) {
 })
 player.onChat("atp", function () {
     agent.teleport(pos(0, 0, 0), NORTH)
+})
+player.onChat("avpravo", function (num1) {
+    for (let index = 0; index < num1; index++) {
+        agent.turn(RIGHT_TURN)
+    }
 })
