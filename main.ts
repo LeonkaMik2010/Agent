@@ -3,7 +3,10 @@ player.onChat("ainfo", function () {
     player.say("/aorej (num1) (num2) -> agent začne orat plochu 1 blok před sebou směrem doprava (num1) dozadu (num2) ")
     player.say("/atp -> teleportne agenta na tvoji pozici natočeného na sever (Z-)")
     player.say("/avlevo (num1) -> otočí agenta směrem doleva (num1)x")
-    player.say("/avpravo (num1) -> otočí")
+    player.say("/avpravo (num1) -> otočí agenta směrem doprava (num1)x")
+})
+player.onChat("astav", function (num1, num2, num3) {
+    agent.place(FORWARD)
 })
 player.onChat("avlevo", function (num1) {
     for (let index = 0; index < num1; index++) {
