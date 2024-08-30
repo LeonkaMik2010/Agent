@@ -4,7 +4,7 @@ player.onChat("ainfo", function () {
     player.say("/atp -> teleportne agenta na tvoji pozici natočeného na sever (Z-)")
     player.say("/avlevo (num1) -> otočí agenta směrem doleva (num1)x")
     player.say("/avpravo (num1) -> otočí agenta směrem doprava (num1)x")
-    player.say("/akopej tunel vpred")
+    player.say("/akopej vpred (num1) (num2) (num3) -> agent začne kopat tunel před sebe se zadanou výškou (num1), šířkou směrem doprava (num2) a délkou (num3)")
 })
 player.onChat("avlevo", function (num1) {
     for (let index = 0; index < num1; index++) {
@@ -33,8 +33,10 @@ player.onChat("akopej vpred", function (num1, num2, num3) {
     for (let index = 0; index < num3; index++) {
         agent.destroy(FORWARD)
         agent.move(FORWARD, 1)
-        for (let index = 0; index < num1; index++) {
-            agent.destroy(UP)
+        if (num1 >= 2) {
+            for (let index = 0; index < num1 - 1; index++) {
+                agent.destroy(UP)
+            }
         }
         if (num2 >= 2) {
             agent.destroy(RIGHT)
